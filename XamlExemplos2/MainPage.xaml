@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:XamlExemplos2" 
+             x:Class="XamlExemplos2.MainPage" 
+             Padding="0,20,0,0"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             xmlns:helpers="clr-namespace:XamlExemplos2.Helpers" 
+ >
+    <StackLayout>
+        <Label 
+               HorizontalOptions="CenterAndExpand">
+            <Label.FormattedText>
+                
+                <FormattedString>
+                    <Span Text="Bem Vindo " FontAttributes="Bold"/>
+                    <Span Text="Bertuzzi" ForegroundColor="Blue"/>
+                </FormattedString>
+                
+            </Label.FormattedText>
+        </Label>
+        
+    <ListView ItemsSource="{Binding Games}" 
+              IsGroupingEnabled="True"
+              android:ListView.IsFastScrollEnabled="true"
+              Footer=""
+              GroupDisplayBinding="{Binding Console}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Nome}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+        
+          <Label 
+               HorizontalOptions="CenterAndExpand">
+            <Label.FormattedText>
+                
+                <FormattedString>
+                    <Span Text="Para mais artigos: " FontAttributes="Bold"/>
+                    <Span Text="{Binding Source={x:Static helpers:Constantes.Medium}}" />
+                </FormattedString>
+                
+            </Label.FormattedText>
+        </Label>
+        
+        
+    </StackLayout>
+</ContentPage>
